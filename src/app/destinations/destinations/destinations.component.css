@@ -5,11 +5,20 @@
 }
 
 .row-primary {
-    border-radius: 3em;
-    height: 40%;
+    border-radius: 2em;
+    height: auto;
+    width: 90% !important;
     background-color: #15025e;
+}
+
+.max-row {
+    width: 100% !important;
 }
 
 .img-btn {
     cursor: pointer;
+}
+
+.dropdown-width {
+    width: 100% !important;
 }

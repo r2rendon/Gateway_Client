@@ -8,8 +8,13 @@ import { Component, OnInit } from '@angular/core';
 export class DestinationsComponent implements OnInit {
   origin:string = "Origen";
   destiny:string = "Destino";
-  internet:string = "Velocidad de internet";
+  internet:string = "Paquete internet";
   experience: string = "Experiencia"
+  multipleDestinations: boolean = false;
+  flights: any =[{
+    origin: "Origen",
+    destiny: "Destino",
+  }];
 
   internetVelocity:any =[
     {
@@ -22,6 +27,8 @@ export class DestinationsComponent implements OnInit {
       velocidad: "3-10mbps"
     },
   ]
+
+
 
 
   destinations:any = [
@@ -79,16 +86,46 @@ export class DestinationsComponent implements OnInit {
     this.internet = int;
   }
 
-  setOrigin(origin:string){
-    this.origin = origin;
+  setOrigin(idx:number, origin:string){
+    this.flights[idx].origin = origin;
   }
 
-  setDestiny(destiny:string){
-    this.destiny = destiny;
+  setDestiny(idx:number ,destiny:string){
+    this.flights[idx].destiny = destiny;
   }
 
   setExperience(experience:string){
     this.experience = experience;
   }
 
+
+  addDestinies(){
+    let aux:any ={
+      origin: "Origen",
+      destiny: "Destino",
+    };
+    this.flights.push(aux);
+  }
+
+  deleteDestiny(idx){
+    this.flights.splice(idx,1);
+
+  }
+
+  deleteOrAddDestinies(){
+    if(this.multipleDestinations){
+      this.flights.splice(1,(this.flights.length -1));
+    }
+    else{
+      let aux:any ={
+        origin: "Origen",
+        destiny: "Destino",
+      };
+      for (let index = 0; index < 2; index++) {
+        this.flights.push(aux);
+      }
+     
+    }
+
+  }
 }
