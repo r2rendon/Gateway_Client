@@ -1,0 +1,15 @@
+.options-container {
+    height: 500px;
+    background-image: url('/assets/avionFondo.jpg');
+    width: 101% !important;
+}
+
+.row-primary {
+    border-radius: 3em;
+    height: 40%;
+    background-color: #15025e;
+}
+
+.img-btn {
+    cursor: pointer;
+}
