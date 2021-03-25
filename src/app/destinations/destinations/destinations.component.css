@@ -10,8 +10,7 @@
     border-radius: 2em;
     height: auto;
     width: 90% !important;
-    background-color: #15025e;
-    opacity: 0.9;
+    background-color: rgba(21, 2, 94, 0.7);
 }
 
 .color {
