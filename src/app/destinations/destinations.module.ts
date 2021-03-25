@@ -6,16 +6,20 @@ import { DestinationsComponent } from './destinations/destinations.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ResultsComponent } from './results/results.component';
 import { FormsModule } from '@angular/forms';
-
+import {HttpClientModule} from '@angular/common/http'
 
 
 @NgModule({
-  declarations: [DestinationsComponent, ResultsComponent],
+  declarations: [
+    DestinationsComponent,
+    ResultsComponent
+  ],
   imports: [
     CommonModule,
     DestinationsRoutingModule,
     NgbModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ]
 })
 export class DestinationsModule { }
