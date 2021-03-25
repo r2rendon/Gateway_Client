@@ -1,5 +1,7 @@
 .options-container {
-    height: 500px;
+    height: auto;
+    padding-top: 100px;
+    padding-bottom: 100px;
     background-image: url('/assets/avionFondo.jpg');
     width: 101% !important;
 }
