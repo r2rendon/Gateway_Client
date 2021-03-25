@@ -11,6 +11,10 @@
     background-color: #15025e;
 }
 
+.color {
+    color: #15025e;
+}
+
 .max-row {
     width: 100% !important;
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-destinations',
@@ -11,6 +12,11 @@ export class DestinationsComponent implements OnInit {
   internet:string = "Paquete internet";
   experience: string = "Experiencia"
   multipleDestinations: boolean = false;
+
+  initDate:Date
+  returnDate:Date
+
+
   flights: any =[{
     origin: "Origen",
     destiny: "Destino",
@@ -77,7 +83,9 @@ export class DestinationsComponent implements OnInit {
 
 
 
-  constructor() { }
+  constructor(
+    private _ruta: Router
+  ) { }
 
   ngOnInit(): void {
   }
@@ -104,7 +112,10 @@ export class DestinationsComponent implements OnInit {
       origin: "Origen",
       destiny: "Destino",
     };
-    this.flights.push(aux);
+    if(this.flights.length <=5){
+      this.flights.push(aux);
+    }
+    
   }
 
   deleteDestiny(idx){
@@ -127,5 +138,9 @@ export class DestinationsComponent implements OnInit {
      
     }
 
+  }
+
+  navigateResult(){
+    this._ruta.navigate(['dest/results']);
   }
 }

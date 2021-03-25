@@ -2,18 +2,17 @@
 
     <div class="row row-primary m-auto">
         <div class="max-row  my-auto py-4">
-            <!-- Default checked -->
-            <div class="row ">
-                <div class="col-md-8">
-                    <div class="text-center custom-control custom-switch pb-2 pl-5">
-                        <input type="checkbox" class="custom-control-input" id="customSwitch1" (click)="deleteOrAddDestinies()" [(ngModel)]="multipleDestinations">
-                        <label class="custom-control-label text-light" for="customSwitch1"> Multiples destinos</label>
-                    </div>
-                </div>
-            </div>
             <div class="row  px-4">
-                <div class="col-md-5">
-                    <div class="row pt-2" *ngFor="let fly of flights; let idx= index">
+                <div class="col-md-4">
+                    <div class="row ">
+                        <div class="col-md-12 text-center">
+                            <div class="custom-control custom-switch pl-5">
+                                <input type="checkbox" class="custom-control-input" id="customSwitch1" (click)="deleteOrAddDestinies()" [(ngModel)]="multipleDestinations">
+                                <label class="custom-control-label text-light" for="customSwitch1"> Multiples destinos</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row  pt-2" *ngFor="let fly of flights; let idx= index">
                         <div class="col-md-5">
                             <div ngbDropdown class="dropdown">
                                 <button ngbDropdownToggle class="btn btn-light dropdown-toggle  dropdown-width" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -39,42 +38,87 @@
                             <img (click)="deleteDestiny(idx)" src="/assets/minus.png" class="img-btn" width="20px" height="20px">
                         </div>
                     </div>
-                    <div *ngIf="multipleDestinations" class="pt-2 pl-2">
-                        <img (click)="addDestinies()" src="/assets/plus.png" class="img-btn" placement="top" ngbTooltip="Agregar destino " width="20px" height="20px">
-                    </div>
-                </div>
-
-                <div class="col-md-2 pt-2">
-                    <div ngbDropdown class="dropdown ">
-                        <button ngbDropdownToggle class="btn btn-light dropdown-toggle  dropdown-width" type="button " id="dropdownMenuButton " data-toggle="dropdown " aria-haspopup="true " aria-expanded="false ">
-                              {{internet}}
-                            </button>
-                        <div ngbDropdownMenu class="dropdown-menu " aria-labelledby="dropdownMenuButton ">
-                            <a *ngFor="let int of internetVelocity " class="dropdown-item show " (click)="setInternet(int.velocidad) ">{{int.velocidad}}</a>
+                    <div class="row text-right">
+                        <div class="col-md-10">
+                            <div *ngIf="multipleDestinations" (click)="addDestinies()" class="pt-2 pl-2 img-btn">
+                                <img src="/assets/plus.png" width="20px" height="20px">
+                                <span class="text-light"> Agregar vuelo</span>
+                            </div>
                         </div>
                     </div>
-
                 </div>
-                <div class="col-md-2 pt-2">
-                    <div ngbDropdown class="dropdown ">
-                        <button ngbDropdownToggle class="btn btn-light dropdown-toggle  dropdown-width" type="button " id="dropdownMenuButton " data-toggle="dropdown " aria-haspopup="true " aria-expanded="false ">
-                              {{experience}}
-                            </button>
-                        <div ngbDropdownMenu class="dropdown-menu " aria-labelledby="dropdownMenuButton ">
-                            <a *ngFor="let exp of experiences " class="dropdown-item show " (click)="setExperience(exp.type) ">{{exp.type}}</a>
+                <div class="col-md-4">
+                    <div class="row color">a</div>
+                    <div class="row pt-2">
+                        <div class="col-md-6">
+                            <div ngbDropdown class="dropdown ">
+                                <button ngbDropdownToggle class="btn btn-light dropdown-toggle  dropdown-width" type="button " id="dropdownMenuButton " data-toggle="dropdown " aria-haspopup="true " aria-expanded="false ">
+                                      {{internet}}
+                                    </button>
+                                <div ngbDropdownMenu class="dropdown-menu " aria-labelledby="dropdownMenuButton ">
+                                    <a *ngFor="let int of internetVelocity " class="dropdown-item show " (click)="setInternet(int.velocidad) ">{{int.velocidad}}</a>
+                                </div>
+                            </div>
+
                         </div>
+                        <div class="col-md-6">
+                            <div ngbDropdown class="dropdown ">
+                                <button ngbDropdownToggle class="btn btn-light dropdown-toggle  dropdown-width" type="button " id="dropdownMenuButton " data-toggle="dropdown " aria-haspopup="true " aria-expanded="false ">
+                                      {{experience}}
+                                    </button>
+                                <div ngbDropdownMenu class="dropdown-menu " aria-labelledby="dropdownMenuButton ">
+                                    <a *ngFor="let exp of experiences " class="dropdown-item show " (click)="setExperience(exp.type) ">{{exp.type}}</a>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
 
                 </div>
-                <div class="col-md-2 p-2">
-                    <div class="btn btn-primary">
-                        Buscar Vuelos
+
+
+
+                <div class="col-md-4">
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <span class="text-light">
+                                Duracion
+                            </span>
+                        </div>
+                    </div>
+                    <div class="row pt-2">
+                        <div class="col-md-6 ">
+                            <div class="form-group text-center">
+
+                                <input type="date" class="form-control" id="partida" [(ngModel)]="initDate" placeholder="00/00/00">
+                                <label for="partida" class="text-light">Partida</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group text-center">
+
+                                <input type="date" class="form-control" id="regreso" [(ngModel)]="returnDate" placeholder="00/00/00">
+                                <label for="regreso" class="text-light">Regreso</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row ">
+                        <div class="col-md-6">
+                            <div class="form-group text-center">
+
+                                <input type="number" class="form-control" id="presupuesto" placeholder="L.00.00">
+                                <label for="presupuesto" class="text-light"> Presupuesto</label>
+                            </div>
+
+                        </div>
+                        <div class="col-md-6">
+                            <div class="btn btn-primary btn-block" (click)="navigateResult()">
+                                Buscar Vuelos
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-
-
-
 
         </div>
     </div>
