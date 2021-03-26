@@ -12,4 +12,8 @@ export class ResultsComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
+  getFlights(){
+    
+  }
 }

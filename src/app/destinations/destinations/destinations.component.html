@@ -67,7 +67,7 @@
                                       {{experience}}
                                     </button>
                                 <div ngbDropdownMenu class="dropdown-menu " aria-labelledby="dropdownMenuButton ">
-                                    <a *ngFor="let exp of experiences " class="dropdown-item show " (click)="setExperience(exp.type) ">{{exp.type}}</a>
+                                    <a *ngFor="let exp of experiences " class="dropdown-item show " (click)="setExperience(exp.type) ">{{exp.name}}</a>
                                 </div>
                             </div>
                         </div>

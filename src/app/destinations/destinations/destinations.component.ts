@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { DestinationsService } from '../services/destinations.service';
 
 @Component({
   selector: 'app-destinations',
@@ -84,10 +85,13 @@ export class DestinationsComponent implements OnInit {
 
 
   constructor(
-    private _ruta: Router
+    private _ruta: Router,
+    private _destinations: DestinationsService
   ) { }
 
   ngOnInit(): void {
+    this.getDestinations();
+    this.getExperiences();
   }
 
   setInternet(int:string){
@@ -142,5 +146,20 @@ export class DestinationsComponent implements OnInit {
 
   navigateResult(){
     this._ruta.navigate(['dest/results']);
+  }
+
+  getDestinations(){
+    this._destinations.getDestinations()
+   .subscribe(data => {
+     this.destinations = data
+     console.log(this.destinations);
+   });
+  }
+
+  getExperiences(){
+    this._destinations.getExperiences()
+    .subscribe(data => {
+      this.experiences = data
+    })
   }
 }

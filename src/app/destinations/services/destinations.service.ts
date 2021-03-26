@@ -6,7 +6,25 @@ import { Injectable } from '@angular/core';
 })
 export class DestinationsService {
 
-  private url = "https://localhost:4500";
+  private url = "http://localhost:3000/";
   
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { 
+  }
+
+  getDestinations(){
+    return this.http.get<any[]>(`${this.url}destinations`);
+  }
+
+  getExperiences(){
+    return this.http.get<any[]>(`${this.url}destinations/expiriences`);
+  }
+
+  getFligths(){
+    return this.http.get<any[]>(`${this.url}fligths`);
+  }
+
+
+  
+ 
+  
 }
